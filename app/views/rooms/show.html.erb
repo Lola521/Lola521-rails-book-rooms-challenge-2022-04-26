@@ -1,2 +1,12 @@
-<h1>Rooms#show</h1>
-<p>Find me in app/views/rooms/show.html.erb</p>
+
+ <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/random/?productivity,hotel)">
+    Hotel : <%= @room.hotel.name %>
+    <br>
+    Address :  <%= @room.hotel.address %>
+    <br>
+    For <%= @room.capacity %> persons
+    <br>
+    <%= @room.price_per_night %>€ / night
+    <br>
+</div>
+    <a class="btn btn-gradient " <%= link_to "OK i'd like to reserve", new_room_booking_path(@room) %></a>
