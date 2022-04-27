@@ -1,17 +1,13 @@
 <h1>Rooms avaible </h1>
 
-<div class="cards">
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://p.bookcdn.com/data/Photos/r1600x558/10893/1089388/1089388342/Hotel-Le-Sud-photos-Exterior-H-tel-Le-Sud.JPEG)">
-    For <%= @rooms.first.capacity %> persons
-    <br>
-    <%= @rooms.first.price_per_night %> € / night
-  </div>
-
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://p.bookcdn.com/data/Photos/r1600x558/10893/1089390/1089390814/Hotel-Le-Sud-photos-Exterior-H-tel-Le-Sud.JPEG)">
-    Lunch
-  </div>
-
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://p.bookcdn.com/data/Photos/r1600x558/9997/999763/999763068/Hotel-Le-Sud-photos-Exterior-H-tel-Le-Sud.JPEG)">
-    Dinner
-  </div>
-</div>
+  <% @rooms.each do |r| %>
+    <div class="cards">
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/random/?productivity,hotel)">
+        For <%= r.capacity %>persons
+        <br>
+        <%= r.price_per_night %>€ / night
+        <br>
+        <a class="btn btn-more" <%= link_to "More details", room_path(r) %></a>
+      </div>
+    </div>
+  <% end %>
