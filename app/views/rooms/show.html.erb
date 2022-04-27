@@ -1,12 +1,14 @@
-
- <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/random/?productivity,hotel)">
-    Hotel : <%= @room.hotel.name %>
-    <br>
-    Address :  <%= @room.hotel.address %>
-    <br>
-    For <%= @room.capacity %> persons
-    <br>
-    <%= @room.price_per_night %>€ / night
-    <br>
+<div class="list-room">
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/random/?productivity,hotel)">
+      Hotel : <%= @room.hotel.name %>
+      <br>
+      Address :  <%= @room.hotel.address %>
+      <br>
+      For <%= @room.capacity %> persons
+      <br>
+      <%= @room.price_per_night %>€ / night
+      <br>
+  </div>
+<a class="btn btn-more" <%= link_to "Reserve", room_booking_index_path(@room) %></a>
+<a class="btn btn-more" <%= link_to "Go back to all rooms", rooms_path %></a>
 </div>
-    <a class="btn btn-gradient " <%= link_to "OK i'd like to reserve", new_room_booking_path(@room) %></a>
