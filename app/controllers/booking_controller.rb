@@ -1,6 +1,10 @@
 class BookingController < ApplicationController
-  def index
+
+  def new
+    @room = Room.find(params[:room_id])
+    @booking = Booking.new
   end
+
   def create
     @room = Room.find(params[:room_id])
     @booking = Booking.new(booking_params)

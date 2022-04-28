@@ -9,6 +9,8 @@
       <%= @room.price_per_night %>€ / night
       <br>
   </div>
-<a class="btn btn-more" <%= link_to "Reserve", room_booking_index_path(@room) %></a>
+<a class="btn btn-more" <%= link_to "Reserve", new_room_booking_path(@room) %></a>
 <a class="btn btn-more" <%= link_to "Go back to all rooms", rooms_path %></a>
+
+
 </div>
