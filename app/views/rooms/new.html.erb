@@ -1,0 +1,7 @@
+ <%= simple_form_for [ @room ] do |f| %>
+    <%= f.input :price_per_night %>
+    <%= f.input :capacity %>
+    <%= f.input :hotel_id %>
+    <%= f.submit "I reserve", class: "btn btn-flat" %>
+  <% end %>
+  <a class="btn btn-flat" <%= link_to "Back to homepage", root_path %></a>
