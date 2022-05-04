@@ -1,4 +1,4 @@
-<div class="list-room">
+<div class="cards">
   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/random/?productivity,hotel)">
       Hotel : <%= @room.hotel.name %>
       <br>
@@ -11,6 +11,13 @@
   </div>
 <a class="btn btn-more" <%= link_to "Reserve", new_room_booking_path(@room) %></a>
 <a class="btn btn-more" <%= link_to "Go back to all rooms", rooms_path %></a>
+<a class="btn btn-more" <%= link_to "Delete", room_path(params[:id]), method: :delete, data: {confirm: "sure?"} %></a>
 
+
+ <%= simple_form_for [ @room, @booking ] do |f| %>
+    <%= f.input :starts_at %>
+    <%= f.input :ends_at %>
+    <%= f.submit "I reserve", class: "btn btn-flat" %>
+  <% end %>
 
 </div>
