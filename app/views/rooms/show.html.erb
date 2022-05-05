@@ -1,22 +1,23 @@
-<div class="cards">
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/random/?productivity,hotel)">
-      Hotel : <%= @room.hotel.name %>
-      <br>
-      Address :  <%= @room.hotel.address %>
-      <br>
-      For <%= @room.capacity %> persons
-      <br>
-      <%= @room.price_per_night %>€ / night
-      <br>
+<div class="bookings">
+  <div class="cards">
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/random/?productivity,hotel)">
+        Hotel : <%= @room.hotel.name %>
+        <br>
+        Address :  <%= @room.hotel.address %>
+        <br>
+        For <%= @room.capacity %> persons
+        <br>
+        <%= @room.price_per_night %>€ / night
+        <br>
+    </div>
   </div>
-<a class="btn btn-more" <%= link_to "Reserve", new_room_booking_path(@room) %></a>
+
 <a class="btn btn-more" <%= link_to "Go back to all rooms", rooms_path %></a>
 <a class="btn btn-more" <%= link_to "Delete", room_path(params[:id]), method: :delete, data: {confirm: "sure?"} %></a>
 
-
  <%= simple_form_for [ @room, @booking ] do |f| %>
-    <%= f.input :starts_at %>
-    <%= f.input :ends_at %>
+    <%= f.input :starts_at, as: :string, input_html: {id: "range_start"} %>
+    <%= f.input :ends_at, as: :string, input_html: {id: "range_end"} %>
     <%= f.submit "I reserve", class: "btn btn-flat" %>
   <% end %>
 
